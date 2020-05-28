@@ -1,4 +1,7 @@
-class EmulationRemoteUserMiddleware(object):
+from django.utils.deprecation import MiddlewareMixin
+
+
+class EmulationRemoteUserMiddleware(MiddlewareMixin):
     """
     Middleware for emulation RemoteUser. One must place this middleware between
     'django.contrib.auth.middleware.AuthenticationMiddleware' and
