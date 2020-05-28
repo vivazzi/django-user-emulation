@@ -48,6 +48,6 @@ def login_user(request, emulated_user):
 
 def redirect_to_next(request):
     redirect_to = request.POST.get('next', request.GET.get('next', '/'))
-    if not is_safe_url(redirect_to):
+    if not is_safe_url(redirect_to, request.get_host()):
         redirect_to = '/'
     return HttpResponseRedirect(redirect_to)
